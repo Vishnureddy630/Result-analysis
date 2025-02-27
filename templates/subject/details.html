@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Entry Form</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+      overflow-x: hidden;
+    }
+    
+    /* Container styles */
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 20px;
+    }
+    
+    /* Header styles */
+    .header {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .header p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    /* Form styles */
+    form label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    form select,
+    form input[type="text"] {
+      width: 50%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+    
+    form input[type="text"] {
+      width: 80%;
+    }
+    
+    form textarea {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+      height: 70px;
+    }
+    
+    form select:focus,
+    form input[type="text"]:focus,
+    form textarea:focus {
+      border-color: #4696d8;
+    }
+    
+    /* Button styles */
+    .send-button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .send-button:hover {
+      background-color: #3e8e41;
+    }
+    
+    /* Footer styles */
+    footer {
+      margin-top: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+    }
+    
+    .header a {
+      left: -20%;
+      background-color: #3897f0;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .batchs{
+      margin-top: 10%;
+      display: flex;
+      justify-content: row;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="/backseduling?button=semister_details">⬅back</a>
+      <h1>Details</h1><br><br>
+      <p>Please review the information before submitting.</p>
+    </header>
+
+    <form action="subjectanalysis" method="POST">
+
+      <div class="batchs">
+        <label for="Select batch"><b>Select batch:</b></label>
+      <select id="Select batch" name="batch">
+        {% for option in batch_options %}
+          <option value="{{ option.value }}" 
+            {% if option.value in selected_batches %}selected{% endif %}>
+            {{ option.label }}
+          </option>
+        {% endfor %}
+      </select>
+      <!-- <label for="my_checkbox"></label> -->
+      <!-- <input type="checkbox" id="my_checkbox" name="my_checkbox" value="1">all -->
+
+      </div>
+      
+      <label for="Semister"><b>Semister:</b></label>
+      <select id="Semister" name="Semister">
+        <option value="None">None</option>
+        <option value="I">I</option>
+        <option value="II">II</option>
+        <option value="III">III</option>
+        <option value="IV">IV</option>
+        <option value="V">V</option>
+        <option value="VI">VI</option>
+        <option value="VII">VII</option>
+        <option value="VIII">VIII</option>
+      </select><br><br>
+
+      <!-- <label for="Regulation">Regulation   :</label>
+      <select id="Regulation" name="Regulation">
+        <option value="None">None</option>
+        <option value="Regular">Regular</option>
+        <option value="Supplementary">Supplementary</option>
+      </select><br><br> -->
+      
+      <p style="color: red;">{{ error }}</p>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

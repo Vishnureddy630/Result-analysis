@@ -1,0 +1,7 @@
+
+
+
+
+=> DataInserter # python not efficent make it efficent
+=> ranker bord of lecturers for the teaching ablility
+==> batch section 

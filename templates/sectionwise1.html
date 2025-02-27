@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+             max-width: 800px; 
+            margin: 10px auto;
+
+            padding: 20px;
+            
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #b8ade7;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .chat-header {
+        background-color: #fff;
+        border-bottom: 1px solid #dbdbdb;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        font-weight: bold;
+    }
+
+    .chat-header a {
+        position: absolute;
+        left: 20px;
+        background-color: #3897f0;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .chat-header a:hover {
+        background-color: #318ce7;
+        transform: scale(1.05);
+    }
+
+    .chat-header a:active {
+        background-color: #267abf;
+        transform: scale(0.95);
+    }
+    .main
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 22px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-header">
+       
+            <a href="/backseduling?button=sectionwise" >⬅back</a>
+            
+   
+            <h1>CSE (AI & ML) - {{section}}</h1><br>
+        </div>
+     
+                    {% for item in data %}
+        
+                    {% if item[0] == "" %}
+                    <table>
+                        <h4><b>Semester : {{ item.8}}</b></h4>
+                        <thead>
+                            <tr>
+                                <th>{{ item.0 }}</th>
+                                <th>{{ item.1 }}</th>
+                                
+                                
+                                <th>{{ item.4 }}</th>
+                                <th>{{ item.5 }}</th>
+                                <th>{{ item.6 }}</th>
+                                <th>{{ item.7 }}</th>
+                
+                            </tr>
+                        </thead>
+                            <tbody>
+                    {% else %}
+                        
+                                <tr>
+                        <td>{{item.0}}</td>
+                        <td>{{item.1}}</td>
+                        <td>{{item.6}}</td>
+                        <td>{{item.7}}</td>
+                        <td>{{item.8}}</td>
+                        <td>{{item.9}}</td>
+                        
+                        </tr>
+                        
+                        {% endif %}
+                    {% endfor %}
+                                </tbody>
+                            </table> 
+                            
+                    <center><img src="data:image/png;base64,{{ imge}}" alt="Bar Graph"></center>
+                    
+                
+                        
+    </div>
+    </body>
+</html>

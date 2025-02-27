@@ -1,0 +1,7 @@
+
+
+--> supply  non supply sutudent should not be there data should no be there
+--> the template sholuld be fixed and for the both supply and regular 
+--> section name should be at the sheet name for both the supply and regular
+--> grades(F== fail ,M== midfail, AB== absent)
+--

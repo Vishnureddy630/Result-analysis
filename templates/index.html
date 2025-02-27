@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Batch</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    
+   .container {
+        background: #fff;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    select {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        height: 150px;
+        background-color: #fff;
+        color: #353131;
+    }
+    
+    select:focus {
+        border-color: #66afe9;
+        outline: none;
+        box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+    
+    option {
+        padding: 10px;
+        background-color: #fff;
+        color: #333;
+    }
+    
+    option:hover {
+        background-color: #f1f1f1;
+    }
+    
+    button {
+        background: #5cb85c;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    button:hover {
+        background: #4cae4c;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    li {
+        background: #e2e2e2;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 4px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+          <h1>Details</h1><br><br>
+          <p>Please review the information before submitting.</p>
+        </header>
+    <form method="POST">
+        <label for="Select batch"><b>Select batch:</b></label>
+        <select id="Select batch" name="batch" multiple>
+            {% for option in batch_options %}
+                <option value="{{ option.value }}" 
+                    {% if option.value in selected_batches %}selected{% endif %}>
+                    {{ option.label }}
+                </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if selected_batches %}
+        <p>You selected:</p>
+        <ul>
+            {% for batch in selected_batches %}
+                <li>{{ batch }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+</body>
+</html>

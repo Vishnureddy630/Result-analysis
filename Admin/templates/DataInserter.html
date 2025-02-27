@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Entry Form</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+      overflow-x: hidden;
+    }
+    
+    /* Container styles */
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 20px;
+    }
+    
+    /* Header styles */
+    .header {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .header p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    /* Form styles */
+    form label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    form select,
+    form input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+    }
+    
+    form input[type="text"] {
+      width: 80%;
+    }
+    
+    form textarea {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+      height: 70px;
+    }
+    
+    form select:focus,
+    form input[type="text"]:focus,
+    form textarea:focus {
+      border-color: #4696d8;
+    }
+    
+    /* Button styles */
+    .send-button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .send-button:hover {
+      background-color: #3e8e41;
+    }
+    
+    /* Footer styles */
+    footer {
+      margin-top: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+    }
+    
+    /* Modal styles */
+    #modal, #process {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .modal-content, .loader-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .close {
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .close:hover {
+      background-color: darkred;
+    }
+    
+    .ok {
+      width: 50px;
+      background-color: #4696d8;
+      border-radius: 8px;
+      border: none;
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .ok:hover {
+      background-color: greenyellow;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Data Entry Form</h1>
+      <p>Please review the information before submitting.</p>
+    </header>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="file">Choose a file:</label>
+      <input type="file" id="file" name="file">
+    
+      <label for="Semister"><b>Semister:</b></label>
+      <select id="Semister" name="Semister">
+        <option value="None">None</option>
+        <option value="I">I</option>
+        <option value="II">II</option>
+        <option value="III">III</option>
+        <option value="IV">IV</option>
+        <option value="V">V</option>
+        <option value="VI">VI</option>
+        <option value="VII">VII</option>
+        <option value="VIII">VIII</option>
+      </select><br><br>
+
+      <label for="Status"><b>Status:</b></label>
+      <select id="Status" name="Status">
+        <option value="None">None</option>
+        <option value="Regular">Regular</option>
+        <option value="Supplementary">Supplementary</option>
+      </select><br><br>
+
+      <label for="BatchYear"><b>Batch Year (e.g., 2021-2025):</b></label>
+      <input type="text" id="BatchYear" name="BatchYear"><br><br>
+
+      <label for="Month"><b>Month :</b></label>
+      <select id="Month" name="Month">
+        <option value="None">None</option>
+        <option value="Jan">Jan</option>
+        <option value="Feb">Feb</option>
+        <option value="Mar">Mar</option>
+        <option value="Apr">Apr</option>
+        <option value="May">May</option>
+        <option value="Jun">Jun</option>
+        <option value="Jul">Jul</option>
+        <option value="Aug">Aug</option>
+        <option value="Sep">Sep</option>
+        <option value="Oct">Oct</option>
+        <option value="Nov">Nov</option>
+        <option value="Dec">Dec</option>
+      </select><br><br>
+
+      <label for="examyear"><b>Exam conducted year:</b></label>
+      <input type="text" id="examyear" name="examyear"><br><br>
+      
+      
+
+      <input type="button" value="Upload" onclick="process()">
+    </form>
+
+    <div id="modal">
+      <div class="modal-content">
+        <div id="message"></div>
+        
+      </div>
+    </div>
+  
+    <div id="process">
+      <div class="loader-content">
+        <h1>Processing </h1>
+        <img src="https://www.bing.com/th/id/OGC.402930e27f800b4045fce958ddddcef4?pid=1.7&rurl=https%3a%2f%2fdpbnri2zg3lc2.cloudfront.net%2fen%2fwp-content%2fuploads%2fold-blog-uploads%2fprocessing-animation.gif&ehk=S93qRF8pQH9M489Z2j7wgXi%2b85hO3NGZAeC99xRTdO8%3d" alt="Loading..." width="300px">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function process() {
+      document.getElementById('process').style.display = 'flex';
+      uploadFile();
+    }
+
+    function uploadFile() {
+      const fileInput = document.getElementById('file');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert('Please select a file.');
+        document.getElementById('process').style.display = 'none';
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('Semister', document.getElementById('Semister').value);
+      formData.append('Status', document.getElementById('Status').value);
+      formData.append('BatchYear', document.getElementById('BatchYear').value);
+      formData.append('Month', document.getElementById('Month').value);
+      formData.append('examyear', document.getElementById('examyear').value);
+
+      fetch('/upload', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        showModal(data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('process').style.display = 'none';
+      });
+    }
+
+    function showModal(message) {
+      document.getElementById('process').style.display = 'none';
+      document.getElementById('modal').style.display = 'flex';
+      document.getElementById('message').innerHTML = message;
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

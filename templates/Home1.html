@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .main
+        {
+            width: 90%;
+            margin: 30px auto;
+            height: 600px;
+            background-color: #fff; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            border-radius: 10px;
+            margin-top: 20px;
+        } */
+        .header {
+            height: 20%;
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            padding-top: 20px;
+            
+            align-items: center;
+            /* margin-bottom: auto; */
+            /* background-color:#e2e2ff; */
+            /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+        }
+        .companylogo{
+            width: 10%;
+            padding-left: 1%;
+        }
+        .college-logo{
+            margin-left: 20%;
+        }
+        .info-item {
+    width: 50%;
+    display: flex;
+    flex-direction: column;  
+
+    }
+    .sidebar
+    { 
+        /* height: 90%; */
+        display: flex;
+        width: 10%;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        gap: 30px;
+        /* padding: 2%; */
+        margin-top: 2%;
+        /* background-color: burlywood; */
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+    .sidebar a{
+        list-style-type: none;
+        text-decoration:none;
+        color: black;
+        
+    }
+    .box{
+        /* justify-content: center; */
+        display: flex;
+        justify-content: center;
+        /* align-content: center; */
+        margin-top: 10%;
+        width: 100%;
+        height: 20px;
+        border-radius: 5px;
+        /* background-color: brown; */
+        align-items: center;
+
+    }
+    
+    .box :hover{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        background-color: #d0c5f8;
+    }
+    .maincontent
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        /* background-color: blueviolet; */
+    }
+    .contentbox{
+        width: 80%;
+    }
+    .graph
+    {
+        width: 90%;
+            /* margin: 30px auto; */
+            /* height: 600px; */
+            background-color: #fff; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            /* flex-direction: column; */
+            /* border-radius: 10px; */
+            /* margin-top: 20px;   */
+            display: flex;
+            justify-content: center;
+            padding:5% 0%;
+            height: 300px;
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="companylogo">
+                <img src="https://th.bing.com/th/id/OIP.sh-LhPOGQVZJCBGdgHYnywAAAA?rs=1&pid=ImgDetMain" alt="vaagdevi logo" weight="85" height="85" >
+            </div>
+            
+            <div class="info-item">
+                        <label ><b >Name    </b>:{{ user_info['Name'] }}</label><br>
+                        <label ><b >Name    </b>:{{ user_info['Name'] }}</label><br>
+                        <label ><b >Name    </b>:{{ user_info['Name'] }}</label><br>
+                        
+                                            
+            </div>
+            <h1>CSE(AI&ML)</h1>
+            <div class="college-logo">
+                <img src="https://th.bing.com/th/id/OIP.ozXGC32VRoOuTV-lthwRyAHaCM?rs=1&pid=ImgDetMain" alt="vaagdevi logo" weight="85" height="85" >
+            </div>
+           
+        </div>
+        <hr>
+<div class="maincontent">
+    <div class="sidebar">
+        <div class="box">  <a href="/capture?button=Subject" >Subject</a>     </div>
+        <div class="box">  <a href="/capture?button=Student" >Student</a>             </div>           
+         <!-- <div class="box"><a href="/capture?button=Batchs" >Batchs</a></div> -->
+         <div class="box"><a href="/capture?button=Faculty">faculty</a></div>                
+         <div class="box"><a href="/capture?button=Semister">Semister</a></div>
+         <div class="box"><a href="/capture?button=Section wise"  >Section</a></div>
+         <div class="box"><a href="/capture?button=data_entry" >Data</a></div>    
+     </div>
+     
+     <div class="contentbox">
+        <h2 class="text-center mb-4">Welcome To Result Analysis</h2>
+      <br>
+      <!-- <p class="text-center mb-2">This project originates from the [Name of Club or Organization]. It has been crafted and developed by Madadi vishnu vardhan reddy, who has played a pivotal role in its conception and execution. The project aims to show the result analysis . It represents a significant effort towards showing the results analysis . The dedication and expertise of [Name of Person] have been instrumental in bringing this project to fruition, making it a notable contribution to Vaagdevi college of engineering. -->
+
+      </p><br>
+      <div class="graph">
+        <img src="data:image/png;base64,{{ plot_img }}" alt="CGPA Growth Plot" width="80%" height="300px">
+      </div>
+         
+     </div>
+
+</div>
+         </div>
+</body>
+</html>

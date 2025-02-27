@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #b8ade7;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .chat-header {
+        background-color: #fff;
+        border-bottom: 1px solid #dbdbdb;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        font-weight: bold;
+    }
+
+    .chat-header a {
+        position: absolute;
+        left: 20px;
+        background-color: #3897f0;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .chat-header a:hover {
+        background-color: #318ce7;
+        transform: scale(1.05);
+    }
+
+    .chat-header a:active {
+        background-color: #267abf;
+        transform: scale(0.95);
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-header">
+       
+            <a href="/backseduling?button=results" >⬅back</a>
+            
+   
+        <h1>Results</h1>
+    </div>
+        
+        <p><b>Name:</b> {{ Name_Section_Cgpa.0 }}</p>
+        <p><b>Roll no:</b> {{ Name_Section_Cgpa.1 }}</p>
+        <p><b>Section:</b> {{ Name_Section_Cgpa.2 }}</p>
+        <p><b>CGPA:</b> {{ Name_Section_Cgpa.3 }}</p><br><br>
+
+        
+        {% for item in items%}
+
+            {% if item.0 == "S. No." %}
+                <table>
+                    <h4><b>Semester : {{ item.6}}</b></h4>
+                    <aside align="right"><h4><b>Month year : {{ item.7}}</b></h4></aside>
+                    <thead>
+                        <tr>
+                            <th>{{ item.0 }}</th>
+                            <th>{{ item.1 }}</th>
+                            <th>{{ item.2 }}</th>
+                            <th>{{ item.3 }}</th>
+                            <th>{{ item.5 }}</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+            {% else %}
+            {% if item.1 == "SGPA" %}
+            <tr>
+                <td style="background-color: #ccdeff;">{{ item.1 }}</td>
+                
+                <td style="background-color: #ccdeff;">{{item.3}}</td>
+
+            </tr>
+
+            {% else%}
+            {% if item.6 == "F" or item.6 == "M" or item.6 == "Ab" or item.6=="nan" %}
+            <tr>
+                <td style="background-color: #ffcfcc;">{{ item.0 }}</td>
+                <td style="background-color: #ffcccc;">{{ item.1 }}</td>
+                <td style="background-color: #ffcccc;">{{ item.2 }}</td>
+                {% if item.8 == 0%}
+                <td style="background-color: #ffcccc;">{{ item.6 }} </td>
+                {% else %}
+                <td style="background-color: #ffcccc;">{{ item.6 }} ({{item.8}})</td>
+                {% endif %}
+                
+                <td style="background-color: #ffcccc;">{{ item.7 }}</td>
+            </tr>
+            {% else%}
+            <tr>
+
+                {% if item.8 == 0%}
+                <td >{{ item.0 }}</td>
+                <td >{{ item.1 }}</td>
+                <td >{{ item.2 }}</td>
+                <td >{{ item.6 }} </td>
+                <td >{{ item.7 }}</td>
+                {% else %}
+                <td style="background-color: #a9f094;">{{ item.0 }}</td>
+                <td style="background-color: #a9f094;">{{ item.1 }}</td>
+                <td style="background-color: #a9f094;">{{ item.2 }}</td>
+                <td style="background-color: #a9f094;">{{ item.6 }} ({{item.8}})</td>
+                <td style="background-color: #a9f094;">{{ item.7 }}</td>
+                {% endif %}
+                
+            </tr>
+            {% endif %}
+            {% endif %}
+                            {% endif %}
+        {% endfor %}
+
+        
+            </tbody>
+            </table> <!-- Close the last table if there were any items -->
+            
+    </div>
+    <center><img src="data:image/png;base64,{{ image_base64 }}" alt="Bar Graph"></center>
+</body>
+</html>

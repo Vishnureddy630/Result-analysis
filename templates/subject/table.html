@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>semister subjects</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            gap: 200px;
+            /* display: flex; */
+            min-width:  100px;
+        }
+        table {
+            flex-grow: 1;
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+         th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #b8ade7;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+
+
+        .chat-header {
+        background-color: #fff;
+        border-bottom: 1px solid #dbdbdb;
+        /* padding: 20px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        font-weight: bold;
+    }
+
+    .chat-header a {
+        position: absolute;
+        left: 20px;
+        background-color: #3897f0;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .chat-header a:hover {
+        background-color: #318ce7;
+        transform: scale(1.05);
+    }
+
+    .chat-header a:active {
+        background-color: #267abf;
+        transform: scale(0.95);
+    }
+    </style>
+</head>
+<body>
+    <div class="chat-header">
+       
+        <a href="/backseduling?button=leaderbord" >⬅back</a>
+        
+
+    <h1>Batch-{{ba}}</h1><br>
+    <p style="margin-left: 20px;">   <b>Semister-</b>{{s}}</p>
+</div>
+
+{{ htmlcode|safe }}
+</body>
+</html>

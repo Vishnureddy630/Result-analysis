@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Roll Number Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+    }
+
+    .form-container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+    
+    .form-container a{
+      
+        left:-20%;
+        background-color: #3897f0;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-bottom: 1000%;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .container-1
+    {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: auto;
+      
+    }
+    .profilemain{
+      max-width: 80%;
+      height: auto;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow-y: auto;
+    }
+    .profile-header {
+            display: flex;
+            align-items: center;
+            background-color: #a2cfff;
+        }
+        .profile-header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .profile-header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #333;
+        }
+        .profile-header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #777;
+        }
+        .profile-section {
+            margin-top: 30px;
+        }
+        .profile-section h3 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        .profile-section p {
+            line-height: 1.6;
+            color: #555;
+        }
+        .contact-info a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .profile-btn
+        {
+          background-color: transparent;
+          border: none;
+          
+        }
+        
+        .profile-btn:hover
+        {
+          background-color: transparent;
+          border: none;
+          color: red;
+        }
+
+        table {
+            flex-grow: 1;
+            width: 100px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 0.7em;
+            
+        }
+         th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #b8ade7;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    #process {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .modal-content, .loader-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+
+  </style>
+</head>
+<body>
+    <div id="process">
+        <div class="loader-content">
+          <h1>Processing </h1>
+          <img src="https://www.bing.com/th/id/OGC.402930e27f800b4045fce958ddddcef4?pid=1.7&rurl=https%3a%2f%2fdpbnri2zg3lc2.cloudfront.net%2fen%2fwp-content%2fuploads%2fold-blog-uploads%2fprocessing-animation.gif&ehk=S93qRF8pQH9M489Z2j7wgXi%2b85hO3NGZAeC99xRTdO8%3d" alt="Loading..." width="300px">
+        </div>
+      </div>
+  <div class="container">
+    <div class="form-container">
+      <a href="/backseduling?button=enter_roll_no"  >⬅back</a>
+      <br>
+      <h2 class="text-center mb-4">Enter Student Roll Number</h2>
+      
+        <div class="form-group">
+          <label for="LecturerId">Lecturer Id:</label>
+          <input type="text" class="form-control" id="LecturerId" name="LecturerId" placeholder="Enter Lecturer Id" required>
+        </div>
+        <button type="submit" onclick="profile()" class="btn btn-primary">Submit</button>
+      
+    </div>
+  </div>
+                        <div class="container-1" id="container-1">
+                            <div class="profilemain" id="profilemain">
+                            <aside align="right">
+                                <button type="submit" onclick="closee()" class="profile-btn">X</button>
+                            </aside>
+                            
+                            <!-- {{ code|safe }} -->
+                              <div id="code"></div>
+                            <div id="message"></div>
+                        </div>
+                        
+                        </div>
+  <script>
+    function profile()
+    {
+        document.getElementById('process').style.display = 'flex';
+        const formData = new FormData();      
+        formData.append('LecturerId', document.getElementById('LecturerId').value);  
+
+        fetch('/profile', 
+        {
+        method: 'POST',
+        body: formData
+        })
+
+        .then(response => response.json())
+
+        .then(data => 
+        {
+        showModal(data.message,data.code);
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        // document.getElementById('process').style.display = 'none';
+        });
+        document.getElementById('container-1').style.display='flex';
+
+    }
+    function showModal(message,code) {
+// document.getElementById('process').style.display = 'none';
+// document.getElementById('modal').style.display = 'flex';
+document.getElementById('process').style.display = 'none';
+document.getElementById('code').innerHTML = code;
+document.getElementById('message').innerHTML = message;
+}
+
+    function closee()
+    {
+      document.getElementById('container-1').style.display='none';
+
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+try to add subject wise trakeing or marks just like section wise
+-----interface---
+clike on subject<--(home)
+redirected to nextpage
+	select batch
+	select semister
+	select subect 
+	submit	<---
+
+		table
+		CC	ALL	Section-A		Section-B	Section-C
+		Teacher	-----	Mrs.P.Chitra Rekha	#REF!		#REF!
+		Candidates	140			101		#REF!		
+		<40%[FAIL]	35			17		#REF!		
+		40% - 49%	44			35		#REF!		
+		50% - 59%	37			34		#REF!		
+		60% - 69%	19			10		#REF!		
+		70% - 79%	4			5		#REF!		
+		80% - 100%	1			0		#REF!		
+		Passed	105	84			2		#REF!		
+		Failed	35	17	#REF!		20		#REF!
+		Pass %	75%	83%	#REF!		30		#REF!
+
+	
+
